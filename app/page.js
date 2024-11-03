@@ -3,9 +3,15 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
+
+const users = [
+  { email: "tijaniwahab@gmail.com", password: "password123" },
+  { email: "emmanuel@gmail.com", password: "admin123" },
+  { email: "nigeria@gmail.com", password: "nigeria123" },
+  // Add more user objects as needed
+];
+
 export default function Home() {
-  // const networkInstance = NetworkInstance();
-  // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,65 +24,63 @@ export default function Home() {
       setEmail(e.target.value);
     }
   };
-  const signIn = async (e) => {
+
+  const signIn = (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      const response = await networkInstance.post(`/api/auth/login`, {
-        email: email.toLowerCase(),
-        password: password,
-      });
 
-      if (response?.status === 200 || response?.status === 201) {
-        const { access_token } = response.data;
-        if (access_token) {
-          localStorage.setItem("prodileJWT", access_token);
-        } else {
-          localStorage.removeItem("prodileJWT");
-        }
-        setTimeout(() => {
-          navigate("/dashboard/overview");
-        }, 1000);
-        setLoading(false);
-      }
-    } catch (err) {
-      setLoading(false);
-      setError(err.response.data.message);
+    // Verify user credentials locally
+    const user = users.find(
+      (u) => u.email === email.toLowerCase() && u.password === password
+    );
+
+    if (user) {
+      localStorage.setItem("profileJWT", "fake-jwt-token"); // Use a dummy token
       setTimeout(() => {
-        setError(null);
-      }, 3000);
+        // Navigate to the dashboard after 5 seconds
+        window.location.href = "/dashboard";
+      }, 3000); // 5000 milliseconds = 5 seconds
+    } else {
+      // Set error message and delay for 5 seconds before hiding the loading state
+      setTimeout(() => {
+        setLoading(false);
+        setError("Invalid email or password.");
+        setTimeout(() => {
+          setError(null);
+        }, 3000);
+      }, 5000); // Show error after 5 seconds
     }
   };
 
   return (
     <div>
-      <div className=" lg:flex w-full">
-        <div className=" ps-72 pt-44 w-[70%]">
+      <div className="lg:flex w-full">
+        <div className="ps-72 pt-44 w-[70%]">
           <h1 className="font-bold text-4xl tracking-wide">Welcome 👋</h1>
           <p className="mt-5 w-[400px] tracking-wide text-xl">
-            Today is a new day. It&aposs your day. Shape it. Sign in to start
+            Today is a new day. It&apos;s your day. Shape it. Sign in to start
             managing your projects.
           </p>
           <form onSubmit={signIn}>
             <div className="w-2 mt-8">
               <p className="font-semibold tracking-wide">Email</p>
               <input
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
                 type="email"
                 placeholder="Enter your email"
-                className="mt-2 h-12  w-full lg:w-[470px] z-0  transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3 "
+                className="mt-2 h-12 w-full lg:w-[470px] z-0 transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3"
               />
               <p className="font-semibold tracking-wide mt-4">Password</p>
               <input
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
                 id="password"
                 placeholder="**********"
-                className=" h-12 mt-2 w-full lg:w-[470px] z-0transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3 "
+                className="h-12 mt-2 w-full lg:w-[470px] z-0 transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3"
+                type="password"
               />
             </div>
             <Link href="/reset">
-              {" "}
-              <p className="mt-2 ms-80 text-base font-semibold cursor-pointer text-green-600 ">
+              <p className="mt-2 ms-80 text-base font-semibold cursor-pointer text-green-600">
                 Forgot Password?
               </p>
             </Link>
@@ -86,20 +90,27 @@ export default function Home() {
                 <p className="text-red-500">{error}</p>
               </div>
             )}
-            <Link href="/dashboard">
-              <button className="bg-green-600 text-white w-full lg:w-[462px] h-14   text-2xl mt-4 rounded-xl">
-                Login
-              </button>
-            </Link>
-            <div className="w-full gap-4 mt-4 items-center flex ">
+            {loading && (
+              <div className="flex justify-center items-center h-8">
+                <div className="animate-spin rounded-full border-t-4 border-b-4 border-green-600 h-8 w-8"></div>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="bg-green-600 text-white w-full lg:w-[462px] h-14 text-2xl mt-4 rounded-xl"
+            >
+              Login
+            </button>
+            <div className="w-full gap-4 mt-4 items-center flex">
               <div className="h-[1px] w-[200px] bg-[#D6DADD]"></div>
               <p className="font-normal text-[#A39F9F] text-sm">OR</p>
               <div className="h-[1px] w-[200px] bg-[#D6DADD]"></div>
             </div>
-            <button className="lg:w-[462px] w-full mt-4 h-14   rounded-xl border-2 p-[10px] gap-[10px]  justify-center items-center flex ">
+            <button className="lg:w-[462px] w-full mt-4 h-14 rounded-xl border-2 p-[10px] gap-[10px] justify-center items-center flex">
               <span className="text-lg">
                 <FcGoogle />
-              </span>{" "}
+              </span>
               <span className="font-semibold text-base leading-5">
                 Sign in with Google
               </span>
@@ -108,14 +119,12 @@ export default function Home() {
 
           <Link href="/signup">
             <p className="mt-4 text-sm font-semibold text-gray-500 ms-32">
-              Dont have an account?
-              <span className="text-green-600 cursor-pointer">
-                sign up
-              </span>{" "}
+              Don't have an account?
+              <span className="text-green-600 cursor-pointer"> sign up</span>
             </p>
           </Link>
         </div>
-        <div className="h-screen  right-0 fixed w-[30%]">
+        <div className="h-screen right-0 fixed w-[30%]">
           <Image
             width="800"
             height="800"
