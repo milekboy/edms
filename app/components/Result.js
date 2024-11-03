@@ -110,7 +110,7 @@ export default function Result({ searchResult }) {
                 <div className="w-[500px] space-y-4 pe-4">
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Owner's name
+                      Owners name
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
