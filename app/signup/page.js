@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
-export default function Home() {
+export default function Signup() {
   // const networkInstance = NetworkInstance();
   // const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -51,20 +51,26 @@ export default function Home() {
   return (
     <div>
       <div className=" lg:flex w-full">
-        <div className=" ps-72 pt-44 w-[70%]">
+        <div className=" ps-72 pt-36 w-[70%]">
           <h1 className="font-bold text-4xl tracking-wide">Welcome 👋</h1>
           <p className="mt-5 w-[400px] tracking-wide text-xl">
-            Today is a new day. It's your day. Shape it. Sign in to start
-            managing your projects.
+            Welcome back! Please enter your details
           </p>
           <form onSubmit={signIn}>
-            <div className="w-2 mt-8">
-              <p className="font-semibold tracking-wide">Email</p>
+            <div className="w-full mt-8">
+              <p className="font-semibold tracking-wide">Full name</p>
               <input
                 onChange={(e) => handleInputChange(e)}
-                type="email"
-                placeholder="Enter your email"
+                type="text"
+                placeholder="Enter your name"
                 className="mt-2 h-12  w-full lg:w-[470px] z-0  transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3 "
+              />
+              <p className="font-semibold tracking-wide mt-4 ">Email Address</p>
+              <input
+                onChange={(e) => handleInputChange(e)}
+                id="email"
+                placeholder="Enter your email address"
+                className=" h-12 mt-2 w-full lg:w-[470px] z-0transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3 "
               />
               <p className="font-semibold tracking-wide mt-4">Password</p>
               <input
@@ -73,24 +79,26 @@ export default function Home() {
                 placeholder="**********"
                 className=" h-12 mt-2 w-full lg:w-[470px] z-0transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3 "
               />
-            </div>
-            <Link href="/reset">
-              {" "}
-              <p className="mt-2 ms-80 text-base font-semibold cursor-pointer text-green-600 ">
-                Forgot Password?
+              <p className="font-semibold tracking-wide mt-4">
+                Confirm Password
               </p>
-            </Link>
+              <input
+                onChange={(e) => handleInputChange(e)}
+                id="password"
+                placeholder="**********"
+                className=" h-12 mt-2 w-full lg:w-[470px] z-0transition ease-in-out border-2 rounded-2xl border-zinc-300 ps-3 "
+              />
+            </div>
 
             {error && (
               <div>
                 <p className="text-red-500">{error}</p>
               </div>
             )}
-            <Link href="/dashboard">
-              <button className="bg-green-600 text-white w-full lg:w-[462px] h-14   text-2xl mt-4 rounded-xl">
-                Login
-              </button>
-            </Link>
+            <button className="bg-green-600 text-white w-full lg:w-[462px] h-14   text-2xl mt-4 rounded-xl">
+              Sign up
+            </button>
+
             <div className="w-full gap-4 mt-4 items-center flex ">
               <div className="h-[1px] w-[200px] bg-[#D6DADD]"></div>
               <p className="font-normal text-[#A39F9F] text-sm">OR</p>
@@ -101,16 +109,15 @@ export default function Home() {
                 <FcGoogle />
               </span>{" "}
               <span className="font-semibold text-base leading-5">
-                Sign in with Google
+                Sign up with Google
               </span>
             </button>
           </form>
-
-          <Link href="/signup">
+          <Link href="/">
             <p className="mt-4 text-sm font-semibold text-gray-500 ms-32">
-              Don't have an account?
-              <span className="text-green-600 cursor-pointer">
-                sign up
+              Already have an account?
+              <span className="text-green-600 cursor-pointer ms-1">
+                Login
               </span>{" "}
             </p>
           </Link>
