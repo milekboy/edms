@@ -58,7 +58,7 @@ export default function Home() {
         <div className="ps-72 pt-44 w-[70%]">
           <h1 className="font-bold text-4xl tracking-wide">Welcome 👋</h1>
           <p className="mt-5 w-[400px] tracking-wide text-xl">
-            Today is a new day. It&apos;s your day. Shape it. Sign in to start
+            Today is a new day. Its your day. Shape it. Sign in to start
             managing your projects.
           </p>
           <form onSubmit={signIn}>
@@ -119,7 +119,7 @@ export default function Home() {
 
           <Link href="/signup">
             <p className="mt-4 text-sm font-semibold text-gray-500 ms-32">
-              Don't have an account?
+              Dont have an account?
               <span className="text-green-600 cursor-pointer"> sign up</span>
             </p>
           </Link>
