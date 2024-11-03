@@ -38,7 +38,7 @@ export default function Result({ searchResult }) {
     <div>
       {!searchResult ? (
         <div className="mt-32 ms-40">
-          <div className=" text-green-600 font-bold ps-7">Dashboard</div>
+          <div className=" text-green-600 font-bold ps-16">Dashboard</div>
           <div className="w-full h-screen flex justify-center mt-32">
             <div>
               <Image
@@ -58,7 +58,7 @@ export default function Result({ searchResult }) {
             strategy="lazyOnload"
             onLoad={() => console.log("Remita script loaded successfully")}
           />
-          <div className="w-[80%] -z-10 h-full rounded-lg shadow-lg relative flex px-4 py-4 pb-16 items-center">
+          <div className="w-[85%] -z-10 h-full rounded-lg shadow-lg relative pt-10 flex px-8 py-4 pb-16  items-center">
             <div>
               <h1 className="font-bold text-xl">Enter your details</h1>
               <p className="text-sm text-gray-400">
@@ -68,7 +68,7 @@ export default function Result({ searchResult }) {
                 <div className="w-[400px] space-y-4">
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      POC number
+                      C of O number
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">

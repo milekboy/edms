@@ -16,7 +16,7 @@ export default function Layout({ children }) {
       lease: "Acquired",
       years: "3",
       use: "Residential",
-      price: "₦2,000",
+      price: "₦16,461.22",
     },
     {
       pocNumber: "01-23-456",
@@ -27,7 +27,7 @@ export default function Layout({ children }) {
       lease: "None",
       years: "6",
       use: "Filling station",
-      price: "₦10,000",
+      price: "₦16,461.22",
     },
     {
       pocNumber: "02-34-567",
@@ -38,7 +38,7 @@ export default function Layout({ children }) {
       lease: "None",
       years: "8",
       use: "Residential",
-      price: "₦9,500",
+      price: "₦16,461.22",
     },
   ];
 

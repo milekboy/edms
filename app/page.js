@@ -64,7 +64,7 @@ export default function Home() {
           <h1 className="font-bold text-4xl tracking-wide">Welcome 👋</h1>
           <p className="mt-5 w-[400px] tracking-wide text-xl">
             Today is a new day. Its your day. Shape it. Sign in to start
-            managing your projects.
+            managing your property.
           </p>
           <form onSubmit={signIn}>
             <div className="w-2 mt-8">
@@ -129,7 +129,7 @@ export default function Home() {
             width="800"
             height="800"
             src={
-              "https://res.cloudinary.com/dbpjskran/image/upload/v1730554551/Group_1171275232_np1efh.png"
+              "https://res.cloudinary.com/dbpjskran/image/upload/v1730660906/image_3_mquqft.png"
             }
           />
         </div>

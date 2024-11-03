@@ -88,7 +88,7 @@ export default function NewPassword() {
             width="800"
             height="800"
             src={
-              "https://res.cloudinary.com/dbpjskran/image/upload/v1730554551/Group_1171275232_np1efh.png"
+              "https://res.cloudinary.com/dbpjskran/image/upload/v1730660906/image_3_mquqft.png"
             }
           />
         </div>
