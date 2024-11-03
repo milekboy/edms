@@ -8,7 +8,7 @@ import Result from "../components/Result";
 export default function Layout({ children }) {
   const data = [
     {
-      pocNumber: "012345678",
+      pocNumber: "00-00-000",
       ownerName: "Tayo Olasukanmi",
       description: "2 plots of land in Enugu",
       value: "₦10m",
@@ -16,9 +16,10 @@ export default function Layout({ children }) {
       lease: "Acquired",
       years: "3",
       use: "Residential",
+      price: "₦2,000",
     },
     {
-      pocNumber: "012345679",
+      pocNumber: "01-23-456",
       ownerName: "Chisom Obi",
       description: "10 plots of land in Kaduna",
       value: "₦20m",
@@ -26,9 +27,10 @@ export default function Layout({ children }) {
       lease: "None",
       years: "6",
       use: "Filling station",
+      price: "₦10,000",
     },
     {
-      pocNumber: "012345677",
+      pocNumber: "02-34-567",
       ownerName: "Yamal Bako",
       description: "1 acre of land in Lagos",
       value: "₦30m",
@@ -36,6 +38,7 @@ export default function Layout({ children }) {
       lease: "None",
       years: "8",
       use: "Residential",
+      price: "₦9,500",
     },
   ];
 

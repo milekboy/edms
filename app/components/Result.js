@@ -58,14 +58,14 @@ export default function Result({ searchResult }) {
             strategy="lazyOnload"
             onLoad={() => console.log("Remita script loaded successfully")}
           />
-          <div className="w-[100%] h-full rounded-lg shadow-lg relative flex px-4 py-4 items-center">
+          <div className="w-[80%] -z-10 h-full rounded-lg shadow-lg relative flex px-4 py-4 pb-16 items-center">
             <div>
               <h1 className="font-bold text-xl">Enter your details</h1>
               <p className="text-sm text-gray-400">
                 They are your personal details
               </p>
               <div id="date" className="flex mt-5 space-x-4 w-[100%]">
-                <div className="w-[500px] space-y-4">
+                <div className="w-[400px] space-y-4">
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
                       POC number
@@ -107,7 +107,7 @@ export default function Result({ searchResult }) {
                     </div>
                   </div>
                 </div>
-                <div className="w-[500px] space-y-4 pe-4">
+                <div className="w-[400px]  space-y-4 pe-4">
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
                       Owners name
@@ -152,8 +152,8 @@ export default function Result({ searchResult }) {
             onClick={makePayment}
             className="flex w-full justify-center mt-6"
           >
-            <button className="lg:bg-green-600  rounded-md  text-white font-semibold hover:text-white py-2 px-4 border-2 border-white w-80 flex justify-center ">
-              Pay Now
+            <button className="lg:bg-green-600  rounded-md  text-white font-semibold hover:text-white py-5 px-4 border-2 border-white w-80 flex justify-center mt-20">
+              Pay {searchResult.price} Now
             </button>
           </div>
         </div>

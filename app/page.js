@@ -54,6 +54,11 @@ export default function Home() {
 
   return (
     <div>
+      {loading && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="animate-spin rounded-full border-t-4 border-b-4 border-s-2 border-e-2 border-green-600 h-16 w-16"></div>
+        </div>
+      )}
       <div className="lg:flex w-full">
         <div className="ps-72 pt-44 w-[70%]">
           <h1 className="font-bold text-4xl tracking-wide">Welcome 👋</h1>
@@ -88,11 +93,6 @@ export default function Home() {
             {error && (
               <div>
                 <p className="text-red-500">{error}</p>
-              </div>
-            )}
-            {loading && (
-              <div className="flex justify-center items-center h-8">
-                <div className="animate-spin rounded-full border-t-4 border-b-4 border-green-600 h-8 w-8"></div>
               </div>
             )}
 
