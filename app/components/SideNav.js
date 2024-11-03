@@ -6,7 +6,7 @@ export default function SideNav() {
   return (
     <div className="h-full w-[13%] fixed border-r-2 border-gray-100 flex ps-7 pt-10 ">
       <div className="space-y-4">
-        <div className="flex space-x-4">
+        <div className="flex space-x-2 cursor-pointer">
           <Image
             src="https://res.cloudinary.com/dbpjskran/image/upload/v1730672653/image_18_3x_i7aj3n.png"
             width="50"
