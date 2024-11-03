@@ -68,49 +68,7 @@ export default function Result({ searchResult }) {
                 <div className="w-[400px] space-y-4">
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      C of O number
-                    </p>
-
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
-                        {searchResult.pocNumber}
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-bold">
-                      Description
-                    </p>
-
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
-                        {searchResult.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-bold">
-                      Years owned
-                    </p>
-
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.years}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-bold">
-                      Use of property
-                    </p>
-
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.use}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-[400px]  space-y-4 pe-4">
-                  <div>
-                    <p className="text-sm text-gray-400 font-bold">
-                      Owners name
+                      Owner's Name
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
@@ -121,15 +79,79 @@ export default function Result({ searchResult }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Property Value
+                      Property Address
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.value}</p>
+                    <div className=" h-auto border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">
+                        {searchResult.pAddress}
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">Dues paid</p>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Commencement Date
+                    </p>
+
+                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">{searchResult.date}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Rent Revision Period
+                    </p>
+
+                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">
+                        {searchResult.period}
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Years Owed
+                    </p>
+
+                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">{searchResult.years}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Survey Plan Number
+                    </p>
+
+                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">{searchResult.spn}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-[400px]  space-y-4 pe-4">
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Owner's Address
+                    </p>
+
+                    <div className=" h-auto border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">
+                        {searchResult.oAddress}
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Use of Property
+                    </p>
+
+                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">{searchResult.use}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Ground Rent Due
+                    </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
                       <p className="mt-2 font-semibold">{searchResult.dues}</p>
@@ -137,11 +159,20 @@ export default function Result({ searchResult }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Residential lease
+                      C of O Number
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.lease}</p>
+                      <p className="mt-2 font-semibold">{searchResult.cofo}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400 font-bold">Plot Size</p>
+
+                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">
+                        {searchResult.description}
+                      </p>
                     </div>
                   </div>
                 </div>
