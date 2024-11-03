@@ -68,7 +68,7 @@ export default function Result({ searchResult }) {
                 <div className="w-[400px] space-y-4">
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Owner&apos;s Address
+                      Owner&apos;s Name
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
@@ -79,7 +79,7 @@ export default function Result({ searchResult }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Owner&apos;s Name
+                      Owner&apos;s Address
                     </p>
 
                     <div className=" h-auto border-2 rounded-lg w-full px-3">
