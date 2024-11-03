@@ -79,7 +79,7 @@ export default function Result({ searchResult }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Property Address
+                      Owner&apos;s Name
                     </p>
 
                     <div className=" h-auto border-2 rounded-lg w-full px-3">
