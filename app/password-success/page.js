@@ -60,12 +60,11 @@ export default function NewPassword() {
           />
           <h1 className="font-bold text-4xl tracking-wide ">Success!</h1>
           <p className="mt-5 tracking-wide text-center text-xl">
-            You have successfully reset
-            <br /> password
+            Payment Successful
           </p>
-          <Link href="/">
+          <Link href="/dashboard">
             <button className="bg-green-600 text-white w-full lg:w-[462px] h-14 text-2xl rounded-xl">
-              Back to Login
+              Back to dashboard
             </button>
           </Link>
         </div>

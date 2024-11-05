@@ -8,7 +8,6 @@ const users = [
   { email: "tijaniwahab@gmail.com", password: "password123" },
   { email: "emmanuel@gmail.com", password: "admin123" },
   { email: "nigeria@gmail.com", password: "nigeria123" },
-  // Add more user objects as needed
 ];
 
 export default function Home() {
@@ -29,26 +28,23 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
 
-    // Verify user credentials locally
     const user = users.find(
       (u) => u.email === email.toLowerCase() && u.password === password
     );
 
     if (user) {
-      localStorage.setItem("profileJWT", "fake-jwt-token"); // Use a dummy token
+      localStorage.setItem("profileJWT", "fake-jwt-token");
       setTimeout(() => {
-        // Navigate to the dashboard after 5 seconds
         window.location.href = "/dashboard";
-      }, 3000); // 5000 milliseconds = 5 seconds
+      }, 3000);
     } else {
-      // Set error message and delay for 5 seconds before hiding the loading state
       setTimeout(() => {
         setLoading(false);
         setError("Invalid email or password.");
         setTimeout(() => {
           setError(null);
         }, 3000);
-      }, 5000); // Show error after 5 seconds
+      }, 5000);
     }
   };
 
@@ -98,10 +94,14 @@ export default function Home() {
 
             <button
               type="submit"
-              className="bg-green-600 text-white w-full lg:w-[462px] h-14 text-2xl mt-4 rounded-xl"
+              disabled={!email || !password} // Disable if email or password is empty
+              className={`bg-green-600 text-white w-full lg:w-[462px] h-14 text-2xl mt-4 rounded-xl ${
+                !email || !password ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               Login
             </button>
+
             <div className="w-full gap-4 mt-4 items-center flex">
               <div className="h-[1px] w-[200px] bg-[#D6DADD]"></div>
               <p className="font-normal text-[#A39F9F] text-sm">OR</p>
