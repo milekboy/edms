@@ -110,7 +110,7 @@ export default function Result({ searchResult }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Years Owed
+                      Years Owned
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
@@ -150,11 +150,11 @@ export default function Result({ searchResult }) {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
-                      Ground Rent Due
+                      Annual Ground Rent (AGR)
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.dues}</p>
+                      <p className="mt-2 font-semibold">{searchResult.agr}</p>
                     </div>
                   </div>
                   <div>
@@ -184,7 +184,11 @@ export default function Result({ searchResult }) {
             className="flex w-full justify-center mt-6"
           >
             <button className="lg:bg-green-600  rounded-md  text-white font-semibold hover:text-white py-5 px-4 border-2 border-white w-80 flex justify-center mt-20">
-              Pay {searchResult.price} Now
+              Pay{" "}
+              {(
+                Number(searchResult.price) * Number(searchResult.year)
+              ).toLocaleString()}{" "}
+              Now
             </button>
           </div>
         </div>
