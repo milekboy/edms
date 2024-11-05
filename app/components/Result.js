@@ -184,7 +184,7 @@ export default function Result({ searchResult }) {
             className="flex w-full justify-center mt-6"
           >
             <button className="lg:bg-green-600  rounded-md  text-white font-semibold hover:text-white py-5 px-4 border-2 border-white w-80 flex justify-center mt-20">
-              Pay{" "}
+              Pay ₦
               {(
                 Number(searchResult.price) * Number(searchResult.year)
               ).toLocaleString()}{" "}
