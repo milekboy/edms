@@ -11,6 +11,7 @@ export default function Result({ searchResult }) {
       setMessage("Input your C of O"); // Reset message if there's a valid search result
     }
   }, [searchResult]);
+
   function makePayment() {
     var form = document.querySelector("#payment-form");
     var paymentEngine = RmPaymentEngine.init({
@@ -34,6 +35,16 @@ export default function Result({ searchResult }) {
     });
     paymentEngine.showPaymentWidget();
   }
+  var yearsOwned = 0; // Default value in case searchResult is not available
+  if (searchResult && searchResult.completionDate) {
+    yearsOwned =
+      new Date().getFullYear() -
+      new Date(searchResult.completionDate).getFullYear();
+    if (yearsOwned === 0) {
+      yearsOwned = 1;
+    }
+  }
+
   return (
     <div>
       {!searchResult ? (
@@ -73,7 +84,7 @@ export default function Result({ searchResult }) {
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
                       <p className="mt-2 font-semibold">
-                        {searchResult.ownerName}
+                        {searchResult.applicantName}
                       </p>
                     </div>
                   </div>
@@ -84,7 +95,7 @@ export default function Result({ searchResult }) {
 
                     <div className=" h-auto border-2 rounded-lg w-full px-3">
                       <p className="mt-2 font-semibold">
-                        {searchResult.pAddress}
+                        {searchResult.applicantAddress}
                       </p>
                     </div>
                   </div>
@@ -94,7 +105,9 @@ export default function Result({ searchResult }) {
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.date}</p>
+                      <p className="mt-2 font-semibold">
+                        {searchResult.completionDate}
+                      </p>
                     </div>
                   </div>
                   <div>
@@ -103,27 +116,29 @@ export default function Result({ searchResult }) {
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
-                        {searchResult.period}
-                      </p>
+                      <p className="mt-2 font-semibold">1 Year(s)</p>
                     </div>
                   </div>
+
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
                       Years Owned
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.years}</p>
+                      <p className="mt-2 font-semibold">{yearsOwned} Year(s)</p>
                     </div>
                   </div>
+
                   <div>
                     <p className="text-sm text-gray-400 font-bold">
                       Survey Plan Number
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.spn}</p>
+                      <p className="mt-2 font-semibold">
+                        {searchResult.surveyPlanNo}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -135,7 +150,7 @@ export default function Result({ searchResult }) {
 
                     <div className=" h-auto border-2 rounded-lg w-full px-3">
                       <p className="mt-2 font-semibold">
-                        {searchResult.oAddress}
+                        {searchResult.applicantAddress}
                       </p>
                     </div>
                   </div>
@@ -144,8 +159,8 @@ export default function Result({ searchResult }) {
                       Use of Property
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.use}</p>
+                    <div className=" h-auto border-2 rounded-lg w-full px-3">
+                      <p className="mt-2 font-semibold">Residential</p>
                     </div>
                   </div>
                   <div>
@@ -154,7 +169,7 @@ export default function Result({ searchResult }) {
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.agr}</p>
+                      <p className="mt-2 font-semibold"> ₦16,461.22</p>
                     </div>
                   </div>
                   <div>
@@ -163,13 +178,17 @@ export default function Result({ searchResult }) {
                     </p>
 
                     <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{searchResult.cofo}</p>
+                      <p className="mt-2 font-semibold">
+                        {searchResult.cofoNumber}
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">Plot Size</p>
+                    <p className="text-sm text-gray-400 font-bold">
+                      Description
+                    </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
+                    <div className=" h-auto border-2 rounded-lg w-full px-3">
                       <p className="mt-2 font-semibold">
                         {searchResult.description}
                       </p>
@@ -184,11 +203,7 @@ export default function Result({ searchResult }) {
             className="flex w-full justify-center mt-6"
           >
             <button className="lg:bg-green-600  rounded-md  text-white font-semibold hover:text-white py-5 px-4 border-2 border-white w-80 flex justify-center mt-20">
-              Pay ₦
-              {(
-                Number(searchResult.price) * Number(searchResult.year)
-              ).toLocaleString()}{" "}
-              Now
+              Pay ₦{(16461.22 * Number(yearsOwned)).toLocaleString()} Now
             </button>
           </div>
         </div>
