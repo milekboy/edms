@@ -24,6 +24,7 @@ export default function Layout({ children }) {
       // Simulate a 2-second delay
       setTimeout(() => {
         setSearchResult(response.data.data); // Set the search result after delay
+
         setLoading(false); // Stop loading after 2 seconds
       }, 2000);
     } catch (error) {
