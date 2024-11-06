@@ -2,8 +2,7 @@ import axios from "axios";
 
 const NetworkInstance = () => {
   const networkInstance = axios.create({
-    baseURL: "http://196.200.119.186:8070/",
-    // baseURL: "http://web-api/",
+    baseURL: "/api/proxy", // Update baseURL to the Vercel proxy API route
   });
 
   return networkInstance;

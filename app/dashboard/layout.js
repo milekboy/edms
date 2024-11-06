@@ -13,8 +13,9 @@ export default function Layout({ children }) {
   const handleSearch = async (query) => {
     setLoading(true); // Start loading
     try {
+      // Call the proxy route instead of the direct backend URL
       const response = await networkInstance.get(
-        `api/land-application/search`,
+        `/api/proxy/land-application`,
         {
           params: { cOfONumber: query },
         }
@@ -24,7 +25,6 @@ export default function Layout({ children }) {
       // Simulate a 2-second delay
       setTimeout(() => {
         setSearchResult(response.data.data); // Set the search result after delay
-
         setLoading(false); // Stop loading after 2 seconds
       }, 2000);
     } catch (error) {
@@ -42,10 +42,8 @@ export default function Layout({ children }) {
   return (
     <div className="flex flex-col h-screen">
       <TopNav onSearch={handleSearch} className="w-full" />
-
       <div className="flex flex-grow">
         <SideNav className="w-1/4 lg:w-1/5 bg-gray-800 " />
-
         <div className="flex-grow p-6 overflow-y-auto">
           {loading ? (
             <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
