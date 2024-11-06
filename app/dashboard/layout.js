@@ -13,9 +13,12 @@ export default function Layout({ children }) {
   const handleSearch = async (query) => {
     setLoading(true); // Start loading
     try {
-      const response = await networkInstance.get(`/land-application/search`, {
-        params: { cOfONumber: query },
-      });
+      const response = await networkInstance.get(
+        `/api/proxy/land-application`,
+        {
+          params: { cOfONumber: query },
+        }
+      );
       console.log("Response data:", response.data);
 
       // Simulate a 2-second delay
