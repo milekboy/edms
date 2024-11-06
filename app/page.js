@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
@@ -24,8 +24,18 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then(function (reg) {
+          console.log("Service Worker Registered", reg);
+        });
+    }
+  }, []);
   const signIn = (e) => {
     e.preventDefault();
+
     setLoading(true);
 
     const user = users.find(
