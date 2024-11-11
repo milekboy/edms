@@ -11,24 +11,28 @@ export default function Layout({ children }) {
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async (query) => {
-    setLoading(true); // Start loading
+    if (!query) {
+      console.error("Query parameter is required.");
+      return;
+    }
+
+    setLoading(true);
     try {
       const response = await networkInstance.get(
-        `/api/land-application`,
+        "/api/land-application/search",
         {
           params: { cOfONumber: query },
         }
       );
       console.log("Response data:", response.data);
 
-      // Simulate a 2-second delay
       setTimeout(() => {
-        setSearchResult(response.data.data); // Set the search result after delay
-        setLoading(false); // Stop loading after 2 seconds
+        setSearchResult(response.data.data);
+        setLoading(false);
       }, 2000);
     } catch (error) {
       console.log("Error fetching data:", error);
-      setLoading(false); // Stop loading if there's an error
+      setLoading(false);
     }
   };
 
