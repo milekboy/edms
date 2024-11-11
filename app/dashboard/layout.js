@@ -8,43 +8,49 @@ import NetworkInstance from "../api/NetworkInstance";
 export default function Layout({ children }) {
   const networkInstance = NetworkInstance();
   const [searchResult, setSearchResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = async (query) => {
+    setLoading(true); // Start loading
     try {
       const response = await networkInstance.get(
-        `api/land-application/search`,
+        `/api/proxy/land-application`,
         {
           params: { cOfONumber: query },
         }
       );
       console.log("Response data:", response.data);
-      setSearchResult(response.data.data); // Set the search result from API response
+
+      // Simulate a 2-second delay
+      setTimeout(() => {
+        setSearchResult(response.data.data); // Set the search result after delay
+        setLoading(false); // Stop loading after 2 seconds
+      }, 2000);
     } catch (error) {
       console.log("Error fetching data:", error);
+      setLoading(false); // Stop loading if there's an error
     }
   };
 
-  // Log searchResult whenever it changes
   useEffect(() => {
     if (searchResult) {
       console.log("Search result updated:", searchResult);
-      // console.log("Applicant Name:", searchResult.data.applicantName);
     }
   }, [searchResult]);
 
   return (
     <div className="flex flex-col h-screen">
-      {/* Top Navigation with search handler */}
       <TopNav onSearch={handleSearch} className="w-full" />
-
-      {/* Content Wrapper */}
       <div className="flex flex-grow">
-        {/* Sidebar */}
         <SideNav className="w-1/4 lg:w-1/5 bg-gray-800 " />
-
-        {/* Main Content, passing searchResult as a prop directly */}
         <div className="flex-grow p-6 overflow-y-auto">
-          <Result searchResult={searchResult} />
+          {loading ? (
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+              <div className="animate-spin rounded-full border-t-4 border-b-4 border-s-2 border-e-2 border-green-600 h-16 w-16"></div>
+            </div>
+          ) : (
+            <Result searchResult={searchResult} />
+          )}
         </div>
       </div>
     </div>

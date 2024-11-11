@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Script from "next/script";
 export default function Result({ searchResult }) {
   const [message, setMessage] = useState("Input your C of O");
+  const router = useRouter();
   useEffect(() => {
     if (!searchResult) {
       setMessage("No results found, please try again.");
@@ -25,6 +27,7 @@ export default function Result({ searchResult }) {
       narration: "Essential Walking Shoes",
       onSuccess: function (response) {
         console.log("callback Successful Response", response);
+        router.push("/payment-success");
       },
       onError: function (response) {
         console.log("callback Error Response", response);
