@@ -66,7 +66,7 @@ export default function Layout({ children }) {
               {error && (
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 z-20 bg-white shadow-xl flex justify-center items-center w-96 h-20">
                   <div>
-                    <div className="h-6 border-b-2 right-0  pointer text-black">
+                    <div className="h-6  right-0  pointer text-black">
                       <ImCancelCircle
                         onClick={() => setError(null)}
                         className="right-0 absolute me-4 cursor-pointer"
