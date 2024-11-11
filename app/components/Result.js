@@ -61,7 +61,7 @@ export default function Result({ searchResult }) {
                 width="200"
                 alt="success"
               />
-              <p className="font-semibold text-center">{message}</p>
+              <p className="font-semibold text-center">Input Your C of O</p>
             </div>
           </div>
         </div>

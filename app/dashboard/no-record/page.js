@@ -11,7 +11,7 @@ export default function NoRecord() {
             width="200"
             alt="success"
           />
-          <p className="font-semibold text-center">No record found</p>
+          <p className="font-semibold text-center">Input Your C Of O</p>
         </div>
       </div>
     </div>
