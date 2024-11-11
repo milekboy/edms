@@ -14,7 +14,7 @@ export default function Layout({ children }) {
     setLoading(true); // Start loading
     try {
       const response = await networkInstance.get(
-        `/api/proxy/land-application`,
+        `/api/land-application`,
         {
           params: { cOfONumber: query },
         }
