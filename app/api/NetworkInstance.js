@@ -2,7 +2,7 @@ import axios from "axios";
 
 const NetworkInstance = () => {
   const networkInstance = axios.create({
-    baseURL: "http://web-api/",
+    baseURL: "http://196.200.119.186/",
   });
 
   return networkInstance;
