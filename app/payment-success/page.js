@@ -1,57 +1,27 @@
 "use client";
-import { useState } from "react";
+import { jsPDF } from "jspdf";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function NewPassword() {
-  // const networkInstance = NetworkInstance();
-  // const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleInputChange = (e) => {
-    if (e.target.id === "password") {
-      setPassword(e.target.value);
-    } else {
-      setEmail(e.target.value);
-    }
+export default function PaymentSuccess() {
+  const endOfYear = new Date(new Date().getFullYear(), 11, 31);
+  const validityDate = endOfYear.toLocaleDateString();
+  const currentDate = new Date().toLocaleDateString();
+  const generateReceipt = () => {
+    const doc = new jsPDF();
+    const logo =
+      "https://res.cloudinary.com/dbpjskran/image/upload/v1730672653/image_18_3x_i7aj3n.png";
+    doc.addImage(logo, "JPEG", 10, 10, 10, 10);
+    doc.text("Certificate of payment", 20, 20);
+    doc.text(`Date Of Payment: ${currentDate}`, 20, 30);
+    doc.text("Amount: #16,461.22", 20, 40);
+    doc.text(`Valid Until: ${validityDate}`, 20, 50);
+    doc.save("receipt.pdf");
   };
-  const signIn = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const response = await networkInstance.post(`/api/auth/login`, {
-        email: email.toLowerCase(),
-        password: password,
-      });
-
-      if (response?.status === 200 || response?.status === 201) {
-        const { access_token } = response.data;
-        if (access_token) {
-          localStorage.setItem("prodileJWT", access_token);
-        } else {
-          localStorage.removeItem("prodileJWT");
-        }
-        setTimeout(() => {
-          navigate("/dashboard/overview");
-        }, 1000);
-        setLoading(false);
-      }
-    } catch (err) {
-      setLoading(false);
-      setError(err.response.data.message);
-      setTimeout(() => {
-        setError(null);
-      }, 3000);
-    }
-  };
-
   return (
     <div>
       <div className="lg:flex w-full">
-        <div className="w-[70%] flex flex-col items-center pt-44 space-y-14">
+        <div className="w-[70%] flex flex-col items-center pt-44 space-y-4">
           <Image
             src="https://res.cloudinary.com/dbpjskran/image/upload/v1730560969/Frame_18_imquru.png"
             height="100"
@@ -62,6 +32,12 @@ export default function NewPassword() {
           <p className="mt-5 tracking-wide text-center text-xl">
             Payment Successful
           </p>
+          <button
+            onClick={generateReceipt}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Download Certificate
+          </button>
           <Link href="/dashboard">
             <button className="bg-green-600 text-white w-full lg:w-[462px] h-14 text-2xl rounded-xl">
               Back to dashboard
