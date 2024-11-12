@@ -52,7 +52,6 @@ export default function Result({ searchResult }) {
     <div>
       {!searchResult ? (
         <div className="mt-32 ms-40">
-          <div className=" text-green-600 font-bold ps-16">Dashboard</div>
           <div className="w-full h-screen flex justify-center mt-32">
             <div>
               <Image
@@ -74,10 +73,8 @@ export default function Result({ searchResult }) {
           />
           <div className="w-[85%] -z-10 h-full rounded-lg shadow-lg relative pt-10 flex px-8 py-4 pb-16  items-center">
             <div>
-              <h1 className="font-bold text-xl">Enter your details</h1>
-              <p className="text-sm text-gray-400">
-                They are your personal details
-              </p>
+              <h1 className="font-bold text-xl">CofO</h1>
+              <p className="text-sm text-gray-400">Below are your details</p>
               <div id="date" className="flex mt-5 space-x-4 w-[100%]">
                 <div className="w-[400px] space-y-4">
                   <div>

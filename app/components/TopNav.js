@@ -34,7 +34,6 @@ export default function TopNav({ onSearch }) {
       <div className="flex gap-4 bg-white">
         <div className="bg-white">
           <p className="font-semibold">Hello, Lekan</p>
-          <p className="text-sm">Have a nice day</p>
         </div>
         <div className="flex border-2 w-[500px] ms-20 rounded-xl">
           <div className="w-[10%] flex justify-center items-center h-full">
