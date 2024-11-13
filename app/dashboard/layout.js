@@ -4,7 +4,8 @@ import SideNav from "../components/SideNav";
 import TopNav from "../components/TopNav";
 import Result from "../components/Result";
 import NetworkInstance from "../api/NetworkInstance";
-import { ImCancelCircle } from "react-icons/im";
+import { MdCancel } from "react-icons/md";
+
 export default function Layout({ children }) {
   const networkInstance = NetworkInstance();
   const [searchResult, setSearchResult] = useState(null);
@@ -67,9 +68,9 @@ export default function Layout({ children }) {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 z-20 bg-white shadow-xl flex justify-center items-center w-96 h-20">
                   <div>
                     <div className="h-6  right-0  pointer text-black">
-                      <ImCancelCircle
+                      <MdCancel
                         onClick={() => setError(null)}
-                        className="right-0 absolute me-4 cursor-pointer"
+                        className="right-0 absolute me-4  cursor-pointer"
                       />
                     </div>
                     <p>{error}</p>
