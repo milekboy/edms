@@ -60,7 +60,9 @@ export default function Result({ searchResult }) {
                 width="200"
                 alt="success"
               />
-              <p className="font-semibold text-center">Input Your C of O</p>
+              <p className="font-semibold text-center text-gray-500">
+                Input Your C of O
+              </p>
             </div>
           </div>
         </div>
