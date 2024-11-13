@@ -78,65 +78,69 @@ export default function Result({ searchResult }) {
               <div id="date" className="flex mt-5 space-x-4 w-[100%]">
                 <div className="w-[400px] space-y-4">
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Owner&apos;s Name
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className=" min-h-14 items-center flex h-auto border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.applicantName}
                       </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Owner&apos;s Address
                     </p>
 
-                    <div className=" h-auto border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.applicantAddress}
                       </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Commencement Date
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className="min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.completionDate}
                       </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Rent Revision Period
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">1 Year(s)</p>
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
+                        1 Year(s)
+                      </p>
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Years Owned
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">{yearsOwned} Year(s)</p>
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
+                        {yearsOwned} Year(s)
+                      </p>
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Survey Plan Number
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.surveyPlanNo}
                       </p>
                     </div>
@@ -144,52 +148,57 @@ export default function Result({ searchResult }) {
                 </div>
                 <div className="w-[400px]  space-y-4 pe-4">
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Property Address
                     </p>
 
-                    <div className=" h-auto border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.applicantAddress}
                       </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Use of Property
                     </p>
 
-                    <div className=" h-auto border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">Residential</p>
+                    <div className="min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
+                        Residential
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-bold">
                       Annual Ground Rent (AGR)
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold"> ₦16,461.22</p>
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
+                        {" "}
+                        ₦16,461.22
+                      </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
-                      C of O Number
+                    <p className="text-sm text-gray-500 font-bold">
+                      CofO Number
                     </p>
 
-                    <div className=" h-12 border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className=" min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.cofoNumber}
                       </p>
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 font-bold">
+                    <p className="text-sm text-gray-500 font-semibold">
                       Description
                     </p>
 
-                    <div className=" h-auto border-2 rounded-lg w-full px-3">
-                      <p className="mt-2 font-semibold">
+                    <div className="min-h-14 h-auto flex items-center border-2 rounded-lg w-full px-3">
+                      <p className=" font-semibold text-sm text-gray-400">
                         {searchResult.description}
                       </p>
                     </div>
@@ -202,8 +211,8 @@ export default function Result({ searchResult }) {
             onClick={makePayment}
             className="flex w-full justify-center mt-6"
           >
-            <button className="lg:bg-green-600  rounded-md  text-white font-semibold hover:text-white py-5 px-4 border-2 border-white w-80 flex justify-center mt-20">
-              Pay ₦{(16461.22 * Number(yearsOwned)).toLocaleString()} Now
+            <button className="lg:bg-green-600  rounded-xl  text-white font-semibold hover:text-white py-5 px-4 border-2 border-white w-80 flex justify-center mt-20">
+              Pay ₦{(16461.22 * Number(yearsOwned)).toLocaleString()}
             </button>
           </div>
         </div>
