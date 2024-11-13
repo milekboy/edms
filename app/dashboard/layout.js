@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
 import TopNav from "../components/TopNav";
 import Result from "../components/Result";
+import Image from "next/image";
 import NetworkInstance from "../api/NetworkInstance";
-import { MdCancel } from "react-icons/md";
+import { IoWarning } from "react-icons/io5";
 
 export default function Layout({ children }) {
   const networkInstance = NetworkInstance();
@@ -37,9 +38,9 @@ export default function Layout({ children }) {
       }, 2000);
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        setError("No C of O match found.");
+        setError("Incorrect C of O.");
       } else {
-        setError("No C of O match found.");
+        setError("Incorrect C of O.");
       }
       setLoading(false);
     }
@@ -65,15 +66,23 @@ export default function Layout({ children }) {
             <>
               <Result searchResult={searchResult} />
               {error && (
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 z-20 bg-white shadow-xl flex justify-center items-center w-96 h-20">
-                  <div>
-                    <div className="h-6  right-0  pointer text-black">
-                      <MdCancel
-                        onClick={() => setError(null)}
-                        className="right-0 absolute me-4  cursor-pointer"
-                      />
+                <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-xl flex flex-col justify-center items-center w-96 h-72 space-y-5 rounded-xl">
+                    <div className="bg-[#FF623D] h-14 w-14 rounded-lg  flex justify-center items-center">
+                      <IoWarning className=" text-white text-5xl" />
                     </div>
-                    <p>{error}</p>
+                    <p className="text-[#29374B] font-semibold text-3xl">
+                      Error
+                    </p>
+                    <p className="text-[#5E749D]">{error}</p>
+                    <button
+                      onClick={() => {
+                        setError(null);
+                      }}
+                      className="bg-[#FF623D]  rounded-xl  text-white font-semibold hover:text-white py-3 px-4   w-80 flex justify-center "
+                    >
+                      Cancel
+                    </button>
                   </div>
                 </div>
               )}
